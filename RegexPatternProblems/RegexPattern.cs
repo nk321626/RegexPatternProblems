@@ -25,6 +25,7 @@ namespace RegexPatternProblems
                 Console.WriteLine("\tFirst name should starts with Cap and should have minimum 3 characters");
             }
         }
+
         //Method to check and take the last name using regex(UC2)
         public void CheckLastName()
         {
