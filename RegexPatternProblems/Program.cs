@@ -1,31 +1,44 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 namespace RegexPatternProblems
 {
     class program
     {
-        //Takes an input from the user.
-        private static readonly string instr = Console.ReadLine();
-        //Main method
         static void Main(string[] args)
         {
+            //Displaying the welcome message
             Console.WriteLine("Welcome to User Registation Problems");
-            Pattern program = new Pattern();
-            Console.WriteLine("-->Select to Program is Executed<--");
-            Console.WriteLine("1.Validate First Name : \n2. validate Last Name:\n3. Exit");
-            Console.WriteLine("Select Above Number:->");
-            int option = Convert.ToInt32(Console.ReadLine());
-            switch (option)
+            RegexPattern pattern = new RegexPattern(); //Creating Objects
+            bool flag = true;
+            while (flag)
             {
-                case 1:
-                    Console.WriteLine(program.validateFirstName(instr)); //Print the output
-                    break;
-                case 2:
-                    Console.WriteLine(program.validateLastName(instr)); //Print the output
-                    break;
-                case 3:
-                default:
-                    Console.WriteLine("Please Select valid Number");
-                    break;
+                Console.WriteLine();
+                Console.WriteLine("\t-->Select To Programs Which can be executed<--");
+                Console.WriteLine("\t1.Enter First Name \n\t2.Enter Last Name \n\t3.Exit");
+                Console.Write("\tEnter Numbers: ");
+                int option = Convert.ToInt32(Console.ReadLine());
+                switch (option)
+                {
+                    case 1:
+                        //Validating user entered a valid firstname or not(UC1)
+                        Console.Write("\tEnter Your First Name: ");
+                        pattern.CheckFirstName();//Call the Method.
+                        break;
+                    case 2:
+                        //Validating user entered a valid firstname or not(UC1)
+                        Console.Write("\tEnter Your Last Name: ");
+                        pattern.CheckLastName();//Call the Method.
+                        break;
+                    case 3:
+                        flag = false;
+                        break;
+                    default:
+                        Console.WriteLine("\tSelect Correct Number");
+                        break;
+                }   
             }
         }
     }
