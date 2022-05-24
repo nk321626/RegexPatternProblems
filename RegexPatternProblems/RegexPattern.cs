@@ -54,14 +54,14 @@ namespace RegexPatternProblems
             }
             else
             {
-                Console.WriteLine("\tThe given email id is not valid");
+                Console.WriteLine("\tThe given email id is invalid");
             }
         }
         //Method to check and take the valid mobile number using regex(UC4)
         public void CheckMobileNumber()
         {
             string mobileNum = Console.ReadLine();
-            //Pattern for checking the mobile number(UC4)
+            //Pattern for checking the mobile number that start with cap and space after country code (UC4)
             string mobNumPattern = "^91[ ][1-9][0-9]{9}$";
             if (Regex.IsMatch(mobileNum, mobNumPattern))
             {
@@ -70,6 +70,20 @@ namespace RegexPatternProblems
             else
             {
                 Console.WriteLine("\tThe number should follow 91 10 digits E.g. 91 9919819801");
+            }
+        }
+        public void CheckPasswrd()
+        {
+            string passwrd = Console.ReadLine();
+            //Pattern for checking the Passwed(UC5) Rule-1
+            string passwrdPattern = "^[a-zA-Z]{8,}$";
+                if (Regex.IsMatch(passwrd, passwrdPattern))
+            {
+                Console.WriteLine("\t Passwrd is Valid");
+            }
+            else
+            {
+                Console.WriteLine("\t invalid Passwrd");
             }
         }
     }
