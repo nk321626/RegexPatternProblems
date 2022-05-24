@@ -72,11 +72,12 @@ namespace RegexPatternProblems
                 Console.WriteLine("\tThe number should follow 91 10 digits E.g. 91 9919819801");
             }
         }
+        //Method to check and valid passwrd using regex(UC5 & UC6)
         public void CheckPasswrd()
         {
             string passwrd = Console.ReadLine();
-            //Pattern for checking the Passwed(UC5) Rule-1
-            string passwrdPattern = "^[a-zA-Z]{8,}$";
+            //Pattern for checking the Passwed for having atleast one uppercase(UC5 & UC6)
+            string passwrdPattern = "^(?=.*[A-Z])[0-9a-zA-Z]{8,}$";
                 if (Regex.IsMatch(passwrd, passwrdPattern))
             {
                 Console.WriteLine("\t Passwrd is Valid");
