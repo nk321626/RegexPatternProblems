@@ -76,9 +76,12 @@ namespace RegexPatternProblems
         public void CheckPasswrd()
         {
             string passwrd = Console.ReadLine();
-            //Pattern for checking the Passwed for having atleast one uppercase(UC5 UC6 & UC7)
-            string passwrdPattern = "^(?=.*[A-Z])(?=.*[0-9])[0-9a-zA-Z]{8,}$";
-                if (Regex.IsMatch(passwrd, passwrdPattern))
+            //Pattern for checking the Passwed for having atleast one uppercase(UC5 UC6 UC7 & UC8)
+            string passwrdPattern = "^(?=.*[A-Z])(?=.*[\\d])(?=.*[\\W])[a-zA-Z0-9[~!@#$%^&*()_+{}:\"<>?]{8,}$";
+            string spacialChar = "[~!@#$%^&*()_+{}:\" <>?]";
+            int count = Regex.Matches(passwrd, spacialChar).Count(); 
+            Console.WriteLine(count);
+            if (Regex.IsMatch(passwrd, passwrdPattern) && count == 1)
             {
                 Console.WriteLine("\t Passwrd is Valid");
             }
